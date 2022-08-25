@@ -42,3 +42,69 @@ Note that changes in your html template `blogApp\templates\blogApp\index.html` a
 
 ### Deploy to Heroku
 
+#### [Create a Heroku Remote](https://devcenter.heroku.com/articles/git#create-a-heroku-remote)
+
+```shell
+heroku create -a deploy-to-heroku-blog-example
+git remote -v
+```
+
+#### [Deploy the code](https://devcenter.heroku.com/articles/git#deploy-your-code)
+
+```shell
+git push heroku main
+```
+
+But it won't be so easy! You should see the below error message:
+```
+remote:  !     Error while running '$ python manage.py collectstatic --noinput'.
+remote:        See traceback above for details.
+remote:
+remote:        You may need to update application code to resolve this error.
+remote:        Or, you can disable collectstatic for this application:
+remote:
+remote:           $ heroku config:set DISABLE_COLLECTSTATIC=1
+remote:
+remote:        https://devcenter.heroku.com/articles/django-assets
+remote:  !     Push rejected, failed to compile Python app.
+remote: 
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to deploy-to-heroku-blog-example.
+remote:
+To https://git.heroku.com/deploy-to-heroku-blog-example.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/deploy-to-heroku-blog-example.git'
+```
+
+It's very normal as Django does not support serving static files in production. A solution is proposed below:
+
+#### [Django and static assets in production](https://devcenter.heroku.com/articles/django-assets)
+
+Follow instructions available on that [page](https://whitenoise.evans.io/en/stable/django.html). To sum-up, you'll need to:
+
+- Add the following to your `settings.py`
+```python
+# settings.py
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+```
+
+- Edit your `settings.py` file and add WhiteNoise to the MIDDLEWARE list. The WhiteNoise middleware should be placed directly after the Django SecurityMiddleware (if you are using it) and before all other middleware:
+```python
+# settings.py
+
+MIDDLEWARE = [
+    # ...
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # ...
+]
+```
+
+Now, you could commit and try again to deploy your app to heroku...
+
+```shell
+
+```
