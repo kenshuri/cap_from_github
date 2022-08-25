@@ -149,4 +149,16 @@ pip freeze > requirements.txt
 - Commit and push to heroku
 
 
+We're not there yet ! You should see an error message complaining about **DisallowedHost at /** 
 
+#### Add ALLOWED_HOSTS
+
+You need to specify in your `settings.py` that your application should accept connection coming from your application domain... To do so, modify the variable ALLOWED_HOSTS defined in your `settings.py`. In my case, in need to do:
+
+```python
+# settings.py
+
+ALLOWED_HOSTS = ['deploy-to-heroku-blog-example.herokuapp.com']
+```
+
+Commit again, and push to heroku!
