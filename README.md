@@ -162,3 +162,20 @@ ALLOWED_HOSTS = ['deploy-to-heroku-blog-example.herokuapp.com']
 ```
 
 Commit again, and push to heroku!
+
+> Bravoooooo !!!!
+
+You should see the landing page :) But wait, something is not right... 
+
+...
+
+...
+
+...
+
+The design is wrong !! Tailwind and daisyUI are not used !!!! This is the worst tutorial ever :'( 
+
+Don't stop here my friend, the time has come: let's make it work with **tailwind + daisyUI**!
+
+
+
