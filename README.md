@@ -84,6 +84,11 @@ It's very normal as Django does not support serving static files in production. 
 
 Follow instructions available on that [page](https://whitenoise.evans.io/en/stable/django.html). To sum-up, you'll need to:
 
+- Install whitenoise
+```shell
+pip install whitenoise
+```
+
 - Add the following to your `settings.py`
 ```python
 # settings.py
@@ -106,5 +111,41 @@ MIDDLEWARE = [
 Now, you could commit and try again to deploy your app to heroku...
 
 ```shell
-
+git push heroku main
 ```
+
+The deployment is successful!! Now go and check your app... What the heck ??!! Something is wrong and you should see an error message saying:
+>#### Application error
+>
+>An error occurred in the application and your page could not be served. If you are the application owner, check your logs for details. You can do this from the Heroku CLI with the command
+>
+>`heroku logs --tail`
+
+Again, this was to be expected, we're not done yet! At the moment, as indicated by the error message, there is **no web process running**.
+
+#### Add a `Procfile` and setup `gunicorn`
+
+As described [here](https://devcenter.heroku.com/articles/django-app-configuration), Heroku web applications require a `Procfile`. This file is used to explicitly declare your application’s process types and entry points. It is located in the root of your repository.
+
+The `Procfile` uses `gunicorn`, we thus need to install it following the instructions available on [this page](https://devcenter.heroku.com/articles/django-app-configuration). As a summary:
+
+- Install gunicorn
+```shell
+pip install gunicorn
+```
+
+- Add a `Procfile` to project root containing simply the following. The name of the app (before `.wsgi below`) is from the value of the `WSGI_APPLICATION` variable define in your `settings.py`.
+```text
+Procfile
+
+web: gunicorn blogProject.wsgi
+```
+
+- Update your requirements.txt to add `gunicorn`
+```shell
+pip freeze > requirements.txt
+```
+
+- Commit and push to heroku
+
+
