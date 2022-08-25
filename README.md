@@ -40,4 +40,5 @@ As prompted, open the page http://127.0.0.1:8000/ and enjoy 🚀
 
 Note that changes in your html template `blogApp\templates\blogApp\index.html` automatically updates what you see in your browser.
 
+### Deploy to Heroku
 
