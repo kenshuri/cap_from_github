@@ -22,8 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-%&qzlpn#0n8bmy+8-m5!e6vnp!k_q#i)!_1c-csr*vr_lcy&xh'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import os
+from dotenv import load_dotenv
+load_dotenv()
+DEBUG = os.environ.get("DJANGO_DEBUG") == 'True'
 
 ALLOWED_HOSTS = ['deploy-to-heroku-blog-example.herokuapp.com']
 

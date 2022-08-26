@@ -175,7 +175,16 @@ You should see the landing page :) But wait, something is not right...
 
 The design is wrong !! Tailwind and daisyUI are not used !!!! This is the worst tutorial ever :'( 
 
-Don't stop here my friend, the time has come: let's make it work with **tailwind + daisyUI**!
+No worries, we're almost there! We just need to add the css file to our git repo! Run the following commands:
+
+```shell
+cd jstoolchains
+npm run tailwind-build
+```
+
+This will automatically creates a minified css file in your app `static` folder. Finally, commit and push to heroku...
+
+> Finally !! It should be all good now ;)
 
 
 
