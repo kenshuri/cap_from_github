@@ -2,7 +2,7 @@
 
 This code will set-up a Django Project with tailwindCSS and daisyUI ready to be deployed to Heroku.
 
-This template was created alongside a this [blogpost](https://kenshuri-blog.herokuapp.com/posts/005_deploy_to_heroku.md)
+This template was created alongside this [blogpost](https://kenshuri-blog.herokuapp.com/posts/005_deploy_to_heroku.md)
 
 ## Set-up the project
 
@@ -49,7 +49,7 @@ heroku create -a your-app-name-on-heroku
 git remote -v
 ```
 
-To make sure that your app can be accessed, you need to add your app domain on Heroku to the list of allowed host. 
+To make sure that your app can be accessed, you need to add your app domain on Heroku to the list of allowed hosts. 
 Please change the setting in your `settings.py` file to match your app name on Heroku.
 
 ```python
@@ -69,7 +69,7 @@ git commit blogProject\settings.py -m 'Modify allowed hosts'
 git push heroku main
 ```
 
-Finnaly, add the 2 following environment variable to your heroku app (by going in Settings > Config Vars):
+Finally, add the 2 following environment variables to your Heroku app (in Settings > Config Vars):
 
 - DJANGO_DEBUG = False
 - DJANGO_SECRET_KEY = random value that you need to generate with code django function [`get_random_secret_key`](https://github.com/django/django/blob/3c447b108ac70757001171f7a4791f493880bf5b/django/core/management/utils.py#L82)
