@@ -9,8 +9,8 @@ This template was created alongside a this [blogpost](https://kenshuri-blog.hero
 To set-up the project from scratch, run the following commands in your terminal.
 
 ```shell
-git clone https://github.com/kenshuri/setup_django_tailwind_daisyui.git
-cd setup_django_tailwind_daisyui
+git clone https://github.com/kenshuri/django_tailwind_heroku.git
+cd django_tailwind_heroku
 python -m virtualenv venv
 pip install -r requirements.txt
 cd jstoolchains
@@ -25,14 +25,14 @@ To see your project in action, open 2 terminals.
 
 In the first terminal run:
 ```shell
-cd setup_django_tailwind_daisyui
+cd django_tailwind_heroku
 cd jstoolchains
 npm run tailwind-watch
 ```
 
 In the second terminal run:
-```
-cd setup_django_tailwind_daisyui
+```shell
+cd django_tailwind_heroku
 python manage.py runserver
 ```
 
@@ -45,8 +45,17 @@ Note that changes in your html template `blogApp\templates\blogApp\index.html` a
 #### [Create a Heroku Remote](https://devcenter.heroku.com/articles/git#create-a-heroku-remote)
 
 ```shell
-heroku create -a deploy-to-heroku-blog-example
+heroku create -a your-app-name-on-heroku
 git remote -v
+```
+
+To make sure that your app can be accessed, you need to add your app domain on Heroku to the list of allowed host. 
+Please change the setting in your `settings.py` file to match your app name on Heroku.
+
+```python
+# settings.py
+
+ALLOWED_HOSTS = ['127.0.0.1', 'your-app-name-on-heroku.herokuapp.com']
 ```
 
 #### [Deploy the code](https://devcenter.heroku.com/articles/git#deploy-your-code)
