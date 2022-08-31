@@ -1,6 +1,6 @@
-# Minimal template for a Django project configured with TailwindCSS and daisyUI ready to be deployed to Heroku
+# Minimal template for a Django project configured with TailwindCSS and daisyUI ready to be deployed to CapRover
 
-This code will set-up a Django Project with tailwindCSS and daisyUI ready to be deployed to Heroku.
+This code will set-up a Django Project with tailwindCSS and daisyUI ready to be deployed to CapRover.
 
 This template was created alongside this [blogpost](https://kenshuri-blog.herokuapp.com/posts/005_deploy_to_heroku.md)
 
@@ -9,8 +9,8 @@ This template was created alongside this [blogpost](https://kenshuri-blog.heroku
 To set-up the project from scratch, run the following commands in your terminal.
 
 ```shell
-git clone https://github.com/kenshuri/django_tailwind_heroku.git
-cd django_tailwind_heroku
+git clone https://github.com/kenshuri/django_tailwind_caprover.git
+cd django_tailwind_caprover
 python -m virtualenv venv
 pip install -r requirements.txt
 cd jstoolchains
@@ -25,14 +25,14 @@ To see your project in action, open 2 terminals.
 
 In the first terminal run:
 ```shell
-cd django_tailwind_heroku
+cd django_tailwind_caprover
 cd jstoolchains
 npm run tailwind-watch
 ```
 
 In the second terminal run:
 ```shell
-cd django_tailwind_heroku
+cd django_tailwind_caprover
 python manage.py runserver
 ```
 
