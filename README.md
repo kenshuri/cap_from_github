@@ -10,6 +10,7 @@ To set-up the project from scratch, run the following commands in your terminal.
 git clone https://github.com/kenshuri/django_tailwind_caprover.git
 cd django_tailwind_caprover
 python -m virtualenv venv
+venv/scripts/activate
 pip install -r requirements.txt
 cd jstoolchains
 npm install
