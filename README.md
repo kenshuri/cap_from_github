@@ -40,36 +40,23 @@ As prompted, open the page http://127.0.0.1:8000/ and enjoy 🚀
 
 Note that changes in your html template `blogApp\templates\blogApp\index.html` automatically updates what you see in your browser.
 
-## Deploy your project to Heroku
+## Deploy your project to CapRover
 
-#### [Create a Heroku Remote](https://devcenter.heroku.com/articles/git#create-a-heroku-remote)
+#### Create a CapRover app
 
+#### Deploy to CapRover
+
+In the terminal run
 ```shell
-heroku create -a your-app-name-on-heroku
-git remote -v
+caprover deploy
 ```
 
-To make sure that your app can be accessed, you need to add your app domain on Heroku to the list of allowed hosts. 
-Please change the setting in your `settings.py` file to match your app name on Heroku.
+Follow the prompts and chose the app you just created
 
-```python
-# settings.py
+#### Modify your app environments variables
 
-ALLOWED_HOSTS = ['127.0.0.1', 'your-app-name-on-heroku.herokuapp.com']
-```
+Add the following environment variables to your app:
 
-Now commit the change:
-```shell
-git commit blogProject\settings.py -m 'Modify allowed hosts'
-```
-
-#### [Deploy the code](https://devcenter.heroku.com/articles/git#deploy-your-code)
-
-```shell
-git push heroku main
-```
-
-Finally, add the 2 following environment variables to your Heroku app (in Settings > Config Vars):
-
-- DJANGO_DEBUG = False
-- DJANGO_SECRET_KEY = random value that you need to generate with code django function [`get_random_secret_key`](https://github.com/django/django/blob/3c447b108ac70757001171f7a4791f493880bf5b/django/core/management/utils.py#L82)
+* DJANGO_DEBUG=TRUE
+* DJANGO_SECRET_KEY --> Create a secret key
+* APP_ALLOWED_HOST --> Your app address
