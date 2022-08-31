@@ -58,4 +58,4 @@ Add the following environment variables to your app:
 
 * DJANGO_DEBUG=TRUE
 * DJANGO_SECRET_KEY --> Create a secret key
-* APP_ALLOWED_HOST --> Your app address
+* APP_ALLOWED_HOSTS --> Your app address
