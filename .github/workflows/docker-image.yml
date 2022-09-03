@@ -17,3 +17,12 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     
+    - name: Deploy image
+      uses: floms/action-caprover@v1
+      with:
+        host: 'https://captain.your-domain.com'
+        password: '${{ secrets.CAPROVER_PASSWORD }}'
+        app: 'my-app'
+        image: my-image-name:$(date +%s)
+
+    
