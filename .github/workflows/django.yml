@@ -26,12 +26,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: CapRover Deploy
-      uses: floms/action-caprover@v1
+      uses: caprover/deploy-from-github@main
       with:
-        host: '${{ secrets.CAPROVER_SERVER }}'
-        password: '${{ secrets.CAPROVER_PASSWORD }}'
+        server: '${{ secrets.CAPROVER_SERVER }}'
         app: '${{ secrets.APP_NAME }}'
-        branch: main
+        token: '${{ secrets.APP_TOKEN }}'
 
         
         
