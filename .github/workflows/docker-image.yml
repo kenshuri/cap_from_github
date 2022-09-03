@@ -26,6 +26,6 @@ jobs:
         host: '${{ secrets.CAPROVER_SERVER }}'
         password: '${{ secrets.CAPROVER_PASSWORD }}'
         app: '${{ secrets.APP_NAME }}'
-        image: 'my-image-name'
+        image: 'my-image-name:latest'
 
     
