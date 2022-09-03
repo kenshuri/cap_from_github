@@ -26,11 +26,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: CapRover Deploy
-      uses: AlexxNB/caprover-action@v1
+      uses: floms/action-caprover@v1
       with:
-        server: ${{ secrets.CAPROVER_SERVER }}
-        password: ${{ secrets.CAPROVER_PASSWORD }}
-        appname: ${{ secrets.APP_NAME }}
+        host: '${{ secrets.CAPROVER_SERVER }}'
+        password: '${{ secrets.CAPROVER_PASSWORD }}'
+        app: '${{ secrets.APP_NAME }}'
+        branch: main
+
         
         
 
