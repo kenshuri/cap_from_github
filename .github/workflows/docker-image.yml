@@ -15,9 +15,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag my-image-name:latest
     
     - name: Print image names
-      run: docker images
+      run: docker images -q my-image-name
+      
+    - name: Deploy image
+      uses: floms/action-caprover@v1
+      with:
+        host: '${{ secrets.CAPROVER_SERVER }}'
+        password: '${{ secrets.CAPROVER_PASSWORD }}'
+        app: '${{ secrets.APP_NAME }}'
+        image: my-image-name
 
     
