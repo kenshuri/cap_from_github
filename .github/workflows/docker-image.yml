@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Publish to caprover
 
 on:
   push:
@@ -32,9 +32,6 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images:  ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        
-    - name: Print some info
-      run: echo ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
     - name: Build and push
       uses: docker/build-push-action@v3
@@ -43,11 +40,6 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-    
-        
-    - name: Print some info
-      run: echo ${{ steps.meta.outputs.tags }}
-
     
     - name: Deploy image
       uses: floms/action-caprover@v1
