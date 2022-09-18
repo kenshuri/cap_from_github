@@ -29,12 +29,16 @@ jobs:
       with:
         images:  ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         
+    - name: Print some info
+      run: echo ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        
     - name: Build and push
       uses: docker/build-push-action@v3
       with:
         context: .
         push: true
-        tags: user/app:latest
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
       
     - name: Deploy image
       uses: floms/action-caprover@v1
