@@ -55,6 +55,6 @@ jobs:
         host: '${{ secrets.CAPROVER_SERVER }}'
         password: '${{ secrets.CAPROVER_PASSWORD }}'
         app: '${{ secrets.APP_NAME }}'
-        image: ghcr.io/kenshuri/cap_from_github:main
+        image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
     
