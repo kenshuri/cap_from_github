@@ -38,7 +38,6 @@ jobs:
         context: .
         push: true
         tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
       
     - name: Deploy image
       uses: floms/action-caprover@v1
