@@ -25,11 +25,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: secrets info
-      run: echo ${{ secrets.CAPROVER_SERVER }}/${{ secrets.CAPROVER_PASSWORD }}/${{ secrets.APP_NAME }}
-    
+        password: ${{ secrets.PAT }}
         
     - name: Extract metadata (tags, labels) for Docker
       id: meta
